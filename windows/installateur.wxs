@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+ <Product Id="*" Name="Les Dieux du Conflit" Language="1036" Version="3.5.0" Manufacturer="M.Mehdi TANNOUBI et arena.ai" UpgradeCode="47C9ABDD-7B32-4D7E-BDD8-68C03AE75B3E">
+  <Package InstallerVersion="200" Compressed="yes" InstallScope="perUser" />
+  <Media Id="1" Cabinet="jeu.cab" EmbedCab="yes" />
+  <Icon Id="AppIcon" SourceFile="windows/icon.ico" />
+  <Property Id="ARPPRODUCTICON" Value="AppIcon" />
+  <Property Id="ARPCOMMENTS" Value="Jeu d'action et d'aventure en Rust." />
+  <Directory Id="TARGETDIR" Name="SourceDir">
+   <Directory Id="LocalAppDataFolder">
+    <Directory Id="INSTALLFOLDER" Name="Les Dieux du Conflit">
+     <Component Id="GameExecutable" Guid="F6DD0354-0F48-4704-A55C-6B32D2648E59">
+      <File Id="GameExe" Source="target/x86_64-pc-windows-gnu/release/les-dieux-du-conflit.exe" KeyPath="yes" />
+     </Component>
+    </Directory>
+   </Directory>
+   <Directory Id="ProgramMenuFolder">
+    <Directory Id="GamePrograms" Name="Les Dieux du Conflit">
+     <Component Id="ProgramShortcut" Guid="469F20CF-DA0E-4D8C-8901-13632AB7D9E2">
+      <Shortcut Id="StartMenuShortcut" Name="Les Dieux du Conflit" Description="Lancer le jeu" Target="[INSTALLFOLDER]les-dieux-du-conflit.exe" WorkingDirectory="INSTALLFOLDER" Icon="AppIcon" />
+      <RemoveFolder Id="RemoveGamePrograms" On="uninstall" />
+      <RegistryValue Root="HKCU" Key="Software\LesDieuxDuConflit" Name="Installed" Type="integer" Value="1" KeyPath="yes" />
+     </Component>
+    </Directory>
+   </Directory>
+  </Directory>
+  <Feature Id="MainFeature" Title="Les Dieux du Conflit" Level="1">
+   <ComponentRef Id="GameExecutable" />
+   <ComponentRef Id="ProgramShortcut" />
+  </Feature>
+ </Product>
+</Wix>

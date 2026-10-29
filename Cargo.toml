@@ -1,0 +1,11 @@
+[package]
+name = "les-dieux-du-conflit"
+version = "3.5.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+macroquad = { version = "0.4.16", features = ["audio"] }
+
+[build-dependencies]
+winres = "0.1"
