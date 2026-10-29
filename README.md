@@ -124,4 +124,4 @@ Sous Windows, la sauvegarde se trouve dans `%APPDATA%\LesDieuxDuConflit\aventure
 
 La police DejaVu Sans est accompagnée de sa licence dans `assets/DejaVu-LICENSE.txt`. Le jeu utilise la bibliothèque libre Macroquad et ses dépendances.
 
-Codé par M.Mehdi TANNOUBI et arena.ai
+Codé par M.Mehdi TANNOUBI
